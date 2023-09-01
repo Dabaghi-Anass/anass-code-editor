@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Java",
+    "keywords": ["int", "float", "double", "boolean", "String", "char", "class", "void"]
+  },
+  {
+    "name": "Python",
+    "keywords": ["int", "float", "bool", "str", "class", "def", "None"]
+  },
+  {
+    "name": "JavaScript",
+    "keywords": ["var", "let", "const", "function", "class"]
+  },
+  {
+    "name": "TypeScript",
+    "keywords": ["var", "let", "const", "function", "class","interface","type","enum"]
+  },
+  {
+    "name": "C++",
+    "keywords": ["int", "float", "double", "bool", "string", "class", "void"]
+  },
+  {
+    "name": "C#",
+    "keywords": ["int", "float", "double", "bool", "string", "class", "void"]
+  },
+  {
+    "name": "Swift",
+    "keywords": ["Int", "Float", "Double", "Bool", "String", "class", "func", "struct"]
+  },
+  {
+    "name": "Ruby",
+    "keywords": ["integer", "float", "boolean", "string", "class", "def", "nil"]
+  },
+  {
+    "name": "PHP",
+    "keywords": ["int", "float", "bool", "string", "class", "function", "null"]
+  },
+  {
+    "name": "Rust",
+    "keywords": ["i32", "f64", "bool", "String", "struct", "impl", "None"]
+  },
+  {
+    "name": "Kotlin",
+    "keywords": ["Int", "Float", "Boolean", "String", "class", "fun", "null"]
+  },
+  {
+    "name": "Go",
+    "keywords": ["int", "float64", "bool", "string", "struct", "func", "nil"]
+  },
+  {
+    "name": "Perl",
+    "keywords": ["my", "$", "sub", "undef", "package", "return", "if"]
+  },
+    {
+      "name": "R",
+      "keywords": ["numeric", "logical", "character", "function", "list", "NULL", "data.frame"]
+    },
+    {
+      "name": "Scala",
+      "keywords": ["Int", "Float", "Boolean", "String", "class", "def", "null"]
+    },
+    {
+      "name": "Lua",
+      "keywords": ["number", "boolean", "string", "function", "table", "nil"]
+    },
+    {
+      "name": "Haskell",
+      "keywords": ["Int", "Float", "Bool", "String", "class", "data", "Nothing"]
+    },
+    {
+      "name": "TypeScript",
+      "keywords": ["let", "var", "function", "class", "const"]
+    },
+    {
+      "name": "Dart",
+      "keywords": ["int", "double", "bool", "String", "class", "void", "null"]
+    },
+    {
+      "name": "Julia",
+      "keywords": ["Int", "Float64", "Bool", "String", "struct", "function", "missing"]
+    },
+    {
+      "name": "Elixir",
+      "keywords": ["integer", "float", "boolean", "string", "defmodule", "def", "nil"]
+    },
+    {
+      "name": "Groovy",
+      "keywords": ["int", "float", "boolean", "String", "class", "def", "null"]
+    },
+    {
+      "name": "Racket",
+      "keywords": ["integer", "float", "boolean", "string", "define", "lambda", "#f"]
+    }
+
+]

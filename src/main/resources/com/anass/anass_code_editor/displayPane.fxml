@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="files" minWidth="-Infinity" prefHeight="424.0" prefWidth="0.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.anass.anass_code_editor.FilesController">
+   <children>
+      <VBox fx:id="filesPane" layoutX="10.0" layoutY="10.0" minWidth="-Infinity" prefHeight="424.0" prefWidth="0.0" style="-fx-background-color: #272727;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" minWidth="-Infinity" prefHeight="34.0" prefWidth="0.0" spacing="10.0" style="-fx-background-color: #272727;">
+               <children>
+                  <TextField fx:id="searchInput" focusTraversable="false" minWidth="-Infinity" onKeyPressed="#searchFiles" prefWidth="0.0" promptText="search..." HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <TreeView fx:id="filesTree" editable="true" minWidth="-Infinity" prefHeight="202.0" prefWidth="0.0" styleClass="files_view" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TreeView>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

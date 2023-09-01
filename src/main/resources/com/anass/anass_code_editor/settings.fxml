@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="settings" minWidth="-Infinity" prefHeight="497.0" prefWidth="0.0" style="-fx-border-width: 0;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.anass.anass_code_editor.SettingsController">
+   <children>
+      <ScrollPane fx:id="settingsScrollPane" fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="497.0" prefWidth="379.0" style="-fx-border-width: 0; -fx-border-color: transparent; -fx-background-color: #272727;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox fx:id="settingsVBox" prefHeight="580.0" prefWidth="297.0" style="-fx-background-color: #272727;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="20.0" minWidth="-Infinity" prefHeight="58.0" prefWidth="0.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="78.0" styleClass="app_heading" text="Theme" />
+                     </children>
+                  </HBox>
+                  <Separator minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" style="-fx-pref-height: 1; -fx-max-height: 1; -fx-border-width: 0;" />
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="67.0" minHeight="-Infinity" prefHeight="15.0" prefWidth="325.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container" />
+                  <VBox fx:id="themesDiv" prefWidth="0.0" />
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="64.0" minHeight="-Infinity" prefHeight="15.0" prefWidth="325.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container" />
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="265.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="0.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container">
+                     <children>
+                        <Label styleClass="app_heading" text="Font" />
+                     </children>
+                  </HBox>
+                  <Separator minWidth="-Infinity" prefWidth="0.0" />
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="264.0" minHeight="-Infinity" prefHeight="15.0" prefWidth="325.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container" />
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="279.0" prefHeight="60.0" prefWidth="325.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="126.0" styleClass="app_heading" text="font size" />
+                           </children>
+                        </HBox>
+                        <Spinner fx:id="fontSizePlaceHolder" editable="true" prefHeight="27.0" prefWidth="64.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="435.0" prefHeight="60.0" prefWidth="325.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="83.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="25.0" prefWidth="117.0" styleClass="app_heading" text="font family" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <ComboBox fx:id="fontsPlaceHolder" editable="true" prefHeight="35.0" prefWidth="168.0" promptText="font" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="482.0" prefHeight="60.0" prefWidth="325.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="37.0" prefWidth="126.0" styleClass="app_heading" text="auto save" />
+                           </children>
+                        </HBox>
+                        <CheckBox fx:id="autoSaveBox" mnemonicParsing="false" onAction="#toggle_auto_save" prefHeight="17.0" prefWidth="6.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="488.0" prefHeight="60.0" prefWidth="325.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="37.0" prefWidth="126.0" styleClass="app_heading" text="intellesense" />
+                           </children>
+                        </HBox>
+                        <CheckBox fx:id="intellisenseBox" mnemonicParsing="false" onAction="#toggle_auto_intellisense" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="345.0" prefHeight="60.0" prefWidth="325.0" spacing="10.0" style="-fx-background-color: #272727;" styleClass="container">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="37.0" prefWidth="126.0" styleClass="app_heading" text="text wrap" />
+                           </children>
+                        </HBox>
+                        <CheckBox fx:id="textWrapBox" mnemonicParsing="false" onAction="#toggle_text_wrap" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

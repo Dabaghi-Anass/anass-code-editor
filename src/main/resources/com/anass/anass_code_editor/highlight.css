@@ -1,0 +1,1240 @@
+.default_default {
+    -fx-fill: #CCCCCC;
+}
+
+.default_background {
+    -fx-background-color: #1C1C1C;
+}
+
+.default_comment {
+    -fx-fill: #7a7a7a;
+}
+
+.default_line {
+    -fx-text-fill: #757575;
+}
+
+.default_keyword {
+    -fx-fill: #ffdd00;
+}
+
+.default_number {
+    -fx-font-weight: bold;
+    -fx-fill: #8c75ff;
+}
+
+.default_double {
+    -fx-font-weight: bold;
+    -fx-fill: #d9534f;
+}
+
+.default_paren {
+    -fx-fill: #ffcc00;
+}
+
+.default_symbol {
+    -fx-fill: #f55538;
+}
+
+.default_brace {
+    -fx-fill: #5bc0de;
+}
+
+.default_bracket {
+    -fx-fill: #00efff;
+}
+
+.default_string {
+    -fx-fill: #00e658;
+}
+
+.default_variable {
+    -fx-fill: #00aaff;
+}
+
+.default_method {
+    -fx-fill: #ff2385;
+}
+
+.default_annotation {
+    -fx-fill: #ffa736;
+}
+
+.default_directive {
+    -fx-fill: #e74c3c;
+}
+
+.default_list_view_cell{
+    -fx-background-color: #363636;
+    -fx-text-fill: #e5e5e5;
+    -fx-font-weight: bold;
+}
+.default_list_view_method_cell{
+    -fx-text-fill: #3498db;
+}
+.default_list_view_cell:hover,.default_list_view_cell:selected,.default_list_view_cell:focused{
+    -fx-background-color: #484848;
+}
+
+/*light theme*/
+.light_theme_property {}
+.light_theme_default {
+    -fx-fill: #333333;
+}
+
+.light_theme_background {
+    -fx-background-color: #ffffff;
+}
+
+.light_theme_comment {
+    -fx-fill: #999999;
+}
+
+.light_theme_line {
+    -fx-text-fill: #757575;
+}
+
+.light_theme_keyword {
+    -fx-fill: #c20539;
+}
+
+.light_theme_number {
+    -fx-font-weight: bold;
+    -fx-fill: #5271ff;
+}
+
+.light_theme_double {
+    -fx-font-weight: bold;
+    -fx-fill: #d9534f;
+}
+
+.light_theme_paren {
+    -fx-fill: #bb8f00;
+}
+
+.light_theme_symbol {
+    -fx-fill: #c92407;
+}
+
+.light_theme_brace {
+    -fx-fill: #007498;
+}
+
+.light_theme_bracket {
+    -fx-fill: #00aaff;
+}
+
+.light_theme_string {
+    -fx-fill: #009b31;
+}
+
+.light_theme_variable {
+    -fx-fill: #0377b6;
+}
+
+.light_theme_method {
+    -fx-fill: #be6b00;
+}
+
+.light_theme_annotation {
+    -fx-fill: #ffa736;
+}
+
+.light_theme_directive {
+    -fx-fill: #e74c3c;
+}
+
+.light_theme_list_view_cell {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #444444;
+    -fx-font-weight: bold;
+}
+
+.light_theme_list_view_method_cell {
+    -fx-text-fill: #3498db;
+}
+
+.light_theme_list_view_cell:hover,
+.light_theme_list_view_cell:selected,
+.light_theme_list_view_cell:focused {
+    -fx-background-color: #dddddd;
+}
+
+/*pink theme*/
+.pink_theme_property {}
+.pink_theme_default {
+    -fx-fill: #CCCCCC;
+}
+
+.pink_theme_background {
+    -fx-background-color: #101010;
+}
+
+.pink_theme_comment {
+    -fx-fill: #FF9AA2;
+}
+
+.pink_theme_line {
+    -fx-text-fill: #FFB6C1;
+}
+
+.pink_theme_keyword {
+    -fx-fill: #ff246f;
+}
+
+.pink_theme_number {
+    -fx-font-weight: bold;
+    -fx-fill: #FF6E40;
+}
+
+.pink_theme_double {
+    -fx-font-weight: bold;
+    -fx-fill: #E57373;
+}
+
+.pink_theme_paren {
+    -fx-fill: #FFAB40;
+}
+
+.pink_theme_symbol {
+    -fx-fill: #1b52ff;
+}
+
+.pink_theme_brace {
+    -fx-fill: #F06292;
+}
+
+.pink_theme_bracket {
+    -fx-fill: #743eff;
+}
+
+.pink_theme_string {
+    -fx-fill: #e5a400;
+}
+
+.pink_theme_variable {
+    -fx-fill: #82b4ff;
+}
+
+.pink_theme_method {
+    -fx-fill: #ff003b;
+}
+
+.pink_theme_annotation {
+    -fx-fill: #FFD740;
+}
+
+.pink_theme_directive {
+    -fx-fill: #E57373;
+}
+
+.pink_theme_list_view_cell {
+    -fx-background-color: #ff6ab8;
+    -fx-text-fill: #2a2a2a;
+    -fx-font-weight: bold;
+}
+
+.pink_theme_list_view_method_cell {
+    -fx-text-fill: #fc043e;
+}
+
+.pink_theme_list_view_cell:hover,
+.pink_theme_list_view_cell:selected,
+.pink_theme_list_view_cell:focused {
+    -fx-background-color: #fc0f5e;
+}
+/*dark theme*/
+.dark_theme_property {}
+.dark_theme_default {
+    -fx-fill: #CCCCCC;
+}
+
+.dark_theme_background {
+    -fx-background-color: #1C1C1C;
+}
+
+.dark_theme_comment {
+    -fx-fill: #7a7a7a;
+}
+
+.dark_theme_line {
+    -fx-text-fill: #757575;
+}
+
+.dark_theme_keyword {
+    -fx-fill: #ffdd00;
+}
+
+.dark_theme_number {
+    -fx-font-weight: bold;
+    -fx-fill: #8c75ff;
+}
+
+.dark_theme_double {
+    -fx-font-weight: bold;
+    -fx-fill: #d9534f;
+}
+
+.dark_theme_paren {
+    -fx-fill: #ffcc00;
+}
+
+.dark_theme_symbol {
+    -fx-fill: #f55538;
+}
+
+.dark_theme_brace {
+    -fx-fill: #5bc0de;
+}
+
+.dark_theme_bracket {
+    -fx-fill: #00efff;
+}
+
+.dark_theme_string {
+    -fx-fill: #00e658;
+}
+
+.dark_theme_variable {
+    -fx-fill: #00aaff;
+}
+
+.dark_theme_method {
+    -fx-fill: #ff2385;
+}
+
+.dark_theme_annotation {
+    -fx-fill: #ffa736;
+}
+
+.dark_theme_directive {
+    -fx-fill: #e74c3c;
+}
+
+.dark_theme_list_view_cell {
+    -fx-background-color: #363636;
+    -fx-text-fill: #e5e5e5;
+    -fx-font-weight: bold;
+}
+
+.dark_theme_list_view_method_cell {
+    -fx-text-fill: #3498db;
+}
+
+.dark_theme_list_view_cell:hover,
+.dark_theme_list_view_cell:selected,
+.dark_theme_list_view_cell:focused {
+    -fx-background-color: #484848;
+}
+/*monokai*/
+.monokai_theme_property {}
+.monokai_theme_default {
+    -fx-fill: #CCCCCC;
+}
+
+.monokai_theme_background {
+    -fx-background-color: #272822;
+}
+
+.monokai_theme_comment {
+    -fx-fill: #75715e;
+}
+
+.monokai_theme_line {
+    -fx-text-fill: #f8f8f2;
+}
+
+.monokai_theme_keyword {
+    -fx-fill: #f92672;
+}
+
+.monokai_theme_number {
+    -fx-font-weight: bold;
+    -fx-fill: #ae81ff;
+}
+
+.monokai_theme_double {
+    -fx-font-weight: bold;
+    -fx-fill: #f92672;
+}
+
+.monokai_theme_paren {
+    -fx-fill: #f8f8f2;
+}
+
+.monokai_theme_symbol {
+    -fx-fill: #f92672;
+}
+
+.monokai_theme_brace {
+    -fx-fill: #66d9ef;
+}
+
+.monokai_theme_bracket {
+    -fx-fill: #a6e22e;
+}
+
+.monokai_theme_string {
+    -fx-fill: #e6db74;
+}
+
+.monokai_theme_variable {
+    -fx-fill: #a6e22e;
+}
+
+.monokai_theme_method {
+    -fx-fill: #66d9ef;
+}
+
+.monokai_theme_annotation {
+    -fx-fill: #75715e;
+}
+
+.monokai_theme_directive {
+    -fx-fill: #f92672;
+}
+
+.monokai_theme_list_view_cell {
+    -fx-background-color: #3e3d32;
+    -fx-text-fill: #f8f8f2;
+    -fx-font-weight: bold;
+}
+
+.monokai_theme_list_view_method_cell {
+    -fx-text-fill: #66d9ef;
+}
+
+.monokai_theme_list_view_cell:hover,
+.monokai_theme_list_view_cell:selected,
+.monokai_theme_list_view_cell:focused {
+    -fx-background-color: #49483e;
+}
+/*solarized*/
+.solarized_dark_property {}
+.solarized_dark_default {
+    -fx-fill: #dcdcdc;
+}
+
+.solarized_dark_background {
+    -fx-background-color: #002b36;
+}
+
+.solarized_dark_comment {
+    -fx-fill: #93a1a1;
+}
+
+.solarized_dark_line {
+    -fx-text-fill: #586e75;
+}
+
+.solarized_dark_keyword {
+    -fx-fill: #859900;
+}
+
+.solarized_dark_number {
+    -fx-font-weight: bold;
+    -fx-fill: #b58900;
+}
+
+.solarized_dark_double {
+    -fx-font-weight: bold;
+    -fx-fill: #dc322f;
+}
+
+.solarized_dark_paren {
+    -fx-fill: #d22bff;
+}
+
+.solarized_dark_symbol {
+    -fx-fill: #cb4b16;
+}
+
+.solarized_dark_brace {
+    -fx-fill: #268bd2;
+}
+
+.solarized_dark_bracket {
+    -fx-fill: #2aa198;
+}
+
+.solarized_dark_string {
+    -fx-fill: #2aa198;
+}
+
+.solarized_dark_variable {
+    -fx-fill: #268bd2;
+}
+
+.solarized_dark_method {
+    -fx-fill: #6c71c4;
+}
+
+.solarized_dark_annotation {
+    -fx-fill: #93a1a1;
+}
+
+.solarized_dark_directive {
+    -fx-fill: #dc322f;
+}
+
+.solarized_dark_list_view_cell {
+    -fx-background-color: #073642;
+    -fx-text-fill: #93a1a1;
+    -fx-font-weight: bold;
+}
+
+.solarized_dark_list_view_method_cell {
+    -fx-text-fill: #268bd2;
+}
+
+.solarized_dark_list_view_cell:hover,
+.solarized_dark_list_view_cell:selected,
+.solarized_dark_list_view_cell:focused {
+    -fx-background-color: #002b36;
+}
+/*tommorow night*/
+.tomorrow_night_property {}
+.tomorrow_night_default {
+    -fx-fill: #ccc;
+}
+
+.tomorrow_night_background {
+    -fx-background-color: #1d1f21;
+}
+
+.tomorrow_night_comment {
+    -fx-fill: #969896;
+}
+
+.tomorrow_night_line {
+    -fx-text-fill: #b4b7b4;
+}
+
+.tomorrow_night_keyword {
+    -fx-fill: #dc78dc;
+}
+
+.tomorrow_night_number {
+    -fx-font-weight: bold;
+    -fx-fill: #f2777a;
+}
+
+.tomorrow_night_double {
+    -fx-font-weight: bold;
+    -fx-fill: #f2777a;
+}
+
+.tomorrow_night_paren {
+    -fx-fill: #468cdc;
+}
+
+.tomorrow_night_symbol {
+    -fx-fill: #cc99cc;
+}
+
+.tomorrow_night_brace {
+    -fx-fill: #66cccc;
+}
+
+.tomorrow_night_bracket {
+    -fx-fill: #99cc99;
+}
+
+.tomorrow_night_string {
+    -fx-fill: #99cc99;
+}
+
+.tomorrow_night_variable {
+    -fx-fill: #66cccc;
+}
+
+.tomorrow_night_method {
+    -fx-fill: #6699cc;
+}
+
+.tomorrow_night_annotation {
+    -fx-fill: #969896;
+}
+
+.tomorrow_night_directive {
+    -fx-fill: #f2777a;
+}
+
+.tomorrow_night_list_view_cell {
+    -fx-background-color: #282a2e;
+    -fx-text-fill: #b4b7b4;
+    -fx-font-weight: bold;
+}
+
+.tomorrow_night_list_view_method_cell {
+    -fx-text-fill: #6699cc;
+}
+
+.tomorrow_night_list_view_cell:hover,
+.tomorrow_night_list_view_cell:selected,
+.tomorrow_night_list_view_cell:focused {
+    -fx-background-color: #333639;
+}
+/*dracula*/
+.dracula_property {}
+.dracula_default {
+    -fx-fill: #f8f8f2;
+}
+
+.dracula_background {
+    -fx-background-color: #282a36;
+}
+
+.dracula_comment {
+    -fx-fill: #6272a4;
+}
+
+.dracula_line {
+    -fx-text-fill: #6272a4;
+}
+
+.dracula_keyword {
+    -fx-fill: #17d7fd;
+}
+
+.dracula_number {
+    -fx-font-weight: bold;
+    -fx-fill: #bd93f9;
+}
+
+.dracula_double {
+    -fx-font-weight: bold;
+    -fx-fill: #ff79c6;
+}
+
+.dracula_paren {
+    -fx-fill: #3a1bff;
+}
+
+.dracula_symbol {
+    -fx-fill: #8be9fd;
+}
+
+.dracula_brace {
+    -fx-fill: #50fa7b;
+}
+
+.dracula_bracket {
+    -fx-fill: #f1fa8c;
+}
+
+.dracula_string {
+    -fx-fill: #f1fa8c;
+}
+
+.dracula_variable {
+    -fx-fill: #f8f8f2;
+}
+
+.dracula_method {
+    -fx-fill: #bd93f9;
+}
+
+.dracula_annotation {
+    -fx-fill: #6272a4;
+}
+
+.dracula_directive {
+    -fx-fill: #ff79c6;
+}
+
+.dracula_list_view_cell {
+    -fx-background-color: #44475a;
+    -fx-text-fill: #f8f8f2;
+    -fx-font-weight: bold;
+}
+
+.dracula_list_view_method_cell {
+    -fx-text-fill: #bd93f9;
+}
+
+.dracula_list_view_cell:hover,
+.dracula_list_view_cell:selected,
+.dracula_list_view_cell:focused {
+    -fx-background-color: #44475a;
+}
+/*ocianic*/
+.oceanic_bliss_property {}
+.oceanic_bliss_default {
+    -fx-fill: #cccccc;
+}
+
+.oceanic_bliss_background {
+    -fx-background-color: #2b303b;
+}
+
+.oceanic_bliss_comment {
+    -fx-fill: #65737e;
+}
+
+.oceanic_bliss_line {
+    -fx-text-fill: #a7adba;
+}
+
+.oceanic_bliss_keyword {
+    -fx-fill: #bf616a;
+}
+
+.oceanic_bliss_number {
+    -fx-font-weight: bold;
+    -fx-fill: #d08770;
+}
+
+.oceanic_bliss_double {
+    -fx-font-weight: bold;
+    -fx-fill: #bf616a;
+}
+
+.oceanic_bliss_paren {
+    -fx-fill: #ffc854;
+}
+
+.oceanic_bliss_symbol {
+    -fx-fill: #bf616a;
+}
+
+.oceanic_bliss_brace {
+    -fx-fill: #8fa1b3;
+}
+
+.oceanic_bliss_bracket {
+    -fx-fill: #5e81ac;
+}
+
+.oceanic_bliss_string {
+    -fx-fill: #a3be8c;
+}
+
+.oceanic_bliss_variable {
+    -fx-fill: #669fd2;
+}
+
+.oceanic_bliss_method {
+    -fx-fill: #4ba679;
+}
+
+.oceanic_bliss_annotation {
+    -fx-fill: #65737e;
+}
+
+.oceanic_bliss_directive {
+    -fx-fill: #bf616a;
+}
+
+.oceanic_bliss_list_view_cell {
+    -fx-background-color: #3b4252;
+    -fx-text-fill: #d8dee9;
+    -fx-font-weight: bold;
+}
+
+.oceanic_bliss_list_view_method_cell {
+    -fx-text-fill: #8fa1b3;
+}
+
+.oceanic_bliss_list_view_cell:hover,
+.oceanic_bliss_list_view_cell:selected,
+.oceanic_bliss_list_view_cell:focused {
+    -fx-background-color: #434c5e;
+}
+/*mocha*/
+.mocha_property {}
+.mocha_default {
+    -fx-fill: #494949;
+}
+
+.mocha_background {
+    -fx-background-color: #f2e8d3;
+}
+
+.mocha_comment {
+    -fx-fill: #998c6c;
+}
+
+.mocha_line {
+    -fx-text-fill: #7f7465;
+}
+
+.mocha_keyword {
+    -fx-fill: #61830f;
+}
+
+.mocha_number {
+    -fx-font-weight: bold;
+    -fx-fill: #b36209;
+}
+
+.mocha_double {
+    -fx-font-weight: bold;
+    -fx-fill: #d25252;
+}
+
+.mocha_paren {
+    -fx-fill: #0e64ff;
+}
+
+.mocha_symbol {
+    -fx-fill: #b36209;
+}
+
+.mocha_brace {
+    -fx-fill: #d2691e;
+}
+
+.mocha_bracket {
+    -fx-fill: #569cd6;
+}
+
+.mocha_string {
+    -fx-fill: #478623;
+}
+
+.mocha_variable {
+    -fx-fill: #1b61a1;
+}
+
+.mocha_method {
+    -fx-fill: #917500;
+}
+
+.mocha_annotation {
+    -fx-fill: #998c6c;
+}
+
+.mocha_directive {
+    -fx-fill: #d25252;
+}
+
+.mocha_list_view_cell {
+    -fx-background-color: #dcd3b2;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+.mocha_list_view_method_cell {
+    -fx-text-fill: #7b9f35;
+}
+
+.mocha_list_view_cell:hover,
+.mocha_list_view_cell:selected,
+.mocha_list_view_cell:focused {
+    -fx-background-color: #c1b6a8;
+}
+/*ruby red*/
+.matrix_property {}
+.matrix_default {
+    -fx-fill: #00ff00;
+}
+
+.matrix_background {
+    -fx-background-color: #000000;
+}
+
+.matrix_comment {
+    -fx-fill: #00aa00;
+}
+
+.matrix_line {
+    -fx-text-fill: #00aa00;
+}
+
+.matrix_keyword {
+    -fx-fill: #88f588;
+}
+
+.matrix_number {
+    -fx-font-weight: bold;
+    -fx-fill: #ffff00;
+}
+
+.matrix_double {
+    -fx-font-weight: bold;
+    -fx-fill: #ff0000;
+}
+
+.matrix_paren {
+    -fx-fill: #2f19ff;
+}
+
+.matrix_symbol {
+    -fx-fill: #ff00d5;
+}
+
+.matrix_brace {
+    -fx-fill: #00ffff;
+}
+
+.matrix_bracket {
+    -fx-fill: #0000ff;
+}
+
+.matrix_string {
+    -fx-fill: #ff00ff;
+}
+
+.matrix_variable {
+    -fx-fill: #00ffff;
+}
+
+.matrix_method {
+    -fx-fill: #00ffff;
+}
+
+.matrix_annotation {
+    -fx-fill: #00aa00;
+}
+
+.matrix_directive {
+    -fx-fill: #ff0000;
+}
+
+.matrix_list_view_cell {
+    -fx-background-color: #333333;
+    -fx-text-fill: #00ff00;
+    -fx-font-weight: bold;
+}
+
+.matrix_list_view_method_cell {
+    -fx-text-fill: #00ffff;
+}
+
+.matrix_list_view_cell:hover,
+.matrix_list_view_cell:selected,
+.matrix_list_view_cell:focused {
+    -fx-background-color: #555555;
+}
+/*ruby red*/
+
+.ruby_red_property {}
+.ruby_red_default {
+    -fx-fill: #ffffff;
+}
+
+.ruby_red_background {
+    -fx-background-color: #7e000c;
+}
+
+.ruby_red_comment {
+    -fx-fill: #adadad;
+}
+
+.ruby_red_line {
+    -fx-text-fill: #adadad;
+}
+
+.ruby_red_keyword {
+    -fx-fill: #ff5d6d;
+}
+
+.ruby_red_number {
+    -fx-font-weight: bold;
+    -fx-fill: #f9cc3b;
+}
+
+.ruby_red_double {
+    -fx-font-weight: bold;
+    -fx-fill: #ff3e51;
+}
+
+.ruby_red_paren {
+    -fx-fill: #006fff;
+}
+
+.ruby_red_symbol {
+    -fx-fill: #ff0000;
+}
+
+.ruby_red_brace {
+    -fx-fill: #1c7dd7;
+}
+
+.ruby_red_bracket {
+    -fx-fill: #1c7dd7;
+}
+
+.ruby_red_string {
+    -fx-fill: #3dffdb;
+}
+
+.ruby_red_variable {
+    -fx-fill: #1c7dd7;
+}
+
+.ruby_red_method {
+    -fx-fill: #3dff64;
+}
+
+.ruby_red_annotation {
+    -fx-fill: #adadad;
+}
+
+.ruby_red_directive {
+    -fx-fill: #ff1f1f;
+}
+
+.ruby_red_list_view_cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1c7dd7;
+    -fx-font-weight: bold;
+}
+
+.ruby_red_list_view_method_cell {
+    -fx-text-fill: #ff3e51;
+}
+
+.ruby_red_list_view_cell:hover,
+.ruby_red_list_view_cell:selected,
+.ruby_red_list_view_cell:focused {
+    -fx-background-color: #f3f3f3;
+}
+/*golden*/
+.golden_sunset_property {}
+.golden_sunset_default {
+    -fx-fill: #333333;
+}
+
+.golden_sunset_background {
+    -fx-background-color: #F2D16B;
+}
+
+.golden_sunset_comment {
+    -fx-fill: #A89164;
+}
+
+.golden_sunset_line {
+    -fx-text-fill: #A89164;
+}
+
+.golden_sunset_keyword {
+    -fx-fill: #c9350d;
+}
+
+.golden_sunset_number {
+    -fx-font-weight: bold;
+    -fx-fill: #b23328;
+}
+
+.golden_sunset_double {
+    -fx-font-weight: bold;
+    -fx-fill: #F58E6F;
+}
+
+.golden_sunset_paren {
+    -fx-fill: #ff1818;
+}
+
+.golden_sunset_symbol {
+    -fx-fill: #bd0c21;
+}
+
+.golden_sunset_brace {
+    -fx-fill: #dc8304;
+}
+
+.golden_sunset_bracket {
+    -fx-fill: #e03712;
+}
+
+.golden_sunset_string {
+    -fx-fill: #005488;
+}
+
+.golden_sunset_variable {
+    -fx-fill: #b26902;
+}
+
+.golden_sunset_method {
+    -fx-fill: #9e00a9;
+}
+
+.golden_sunset_annotation {
+    -fx-fill: #8c6512;
+}
+
+.golden_sunset_directive {
+    -fx-fill: #bb4e2e;
+}
+
+.golden_sunset_list_view_cell {
+    -fx-background-color: #F2D16B;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+}
+
+.golden_sunset_list_view_method_cell {
+    -fx-text-fill: #d27a00;
+}
+
+.golden_sunset_list_view_cell:hover,
+.golden_sunset_list_view_cell:selected,
+.golden_sunset_list_view_cell:focused {
+    -fx-background-color: #F2C56B;
+}
+/*azur sky*/
+.azure_sky_default {
+    -fx-fill: #ececec;
+}
+
+.azure_sky_background {
+    -fx-background-color: #012234;
+}
+
+.azure_sky_comment {
+    -fx-fill: #8faebd;
+}
+
+.azure_sky_line {
+    -fx-text-fill: #6C8B99;
+}
+
+.azure_sky_keyword {
+    -fx-fill: #1e95ea;
+}
+
+.azure_sky_number {
+    -fx-font-weight: bold;
+    -fx-fill: #e01d51;
+}
+
+.azure_sky_double {
+    -fx-font-weight: bold;
+    -fx-fill: #DE6B48;
+}
+
+.azure_sky_paren {
+    -fx-fill: #fc6436;
+}
+
+.azure_sky_symbol {
+    -fx-fill: #0093ff;
+}
+
+.azure_sky_brace {
+    -fx-fill: #00c98d;
+}
+
+.azure_sky_bracket {
+    -fx-fill: #00c928;
+}
+
+.azure_sky_string {
+    -fx-fill: #6AC65A;
+}
+
+.azure_sky_variable {
+    -fx-fill: #004bcb;
+}
+
+.azure_sky_method {
+    -fx-fill: #6AC65A;
+}
+
+.azure_sky_annotation {
+    -fx-fill: #ea48d5;
+}
+
+.azure_sky_directive {
+    -fx-fill: #DE6B48;
+}
+
+.azure_sky_list_view_cell {
+    -fx-background-color: #1B5A77;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.azure_sky_list_view_method_cell {
+    -fx-text-fill: #6AC65A;
+}
+
+.azure_sky_list_view_cell:hover,
+.azure_sky_list_view_cell:selected,
+.azure_sky_list_view_cell:focused {
+    -fx-background-color: #236783;
+}
+/*2077*/
+.year_2077_theme_default {
+    -fx-fill: #fda500;
+}
+
+.year_2077_theme_background {
+    -fx-background-color: #12012c;
+}
+
+.year_2077_theme_comment {
+    -fx-fill: #595bc0;
+}
+
+.year_2077_theme_line {
+    -fx-text-fill: #b60051;
+}
+
+.year_2077_theme_keyword {
+    -fx-fill: #e600ff;
+}
+
+.year_2077_theme_number {
+    -fx-font-weight: bold;
+    -fx-fill: #ff002f;
+}
+
+.year_2077_theme_double {
+    -fx-font-weight: bold;
+    -fx-fill: #ff5555;
+}
+
+.year_2077_theme_paren {
+    -fx-fill: #b8b8b8;
+}
+
+.year_2077_theme_symbol {
+    -fx-fill: #0057f5;
+}
+
+.year_2077_theme_brace {
+    -fx-fill: #ffa228;
+}
+
+.year_2077_theme_bracket {
+    -fx-fill: #ffd345;
+}
+
+.year_2077_theme_string {
+    -fx-fill: #2ce1da;
+}
+
+.year_2077_theme_variable {
+    -fx-fill: #ff0044;
+}
+
+.year_2077_theme_method {
+    -fx-fill: #6f50fa;
+}
+
+.year_2077_theme_annotation {
+    -fx-fill: #81682c;
+}
+
+.year_2077_theme_directive {
+    -fx-fill: #ff5555;
+}
+
+.year_2077_theme_list_view_cell {
+    -fx-background-color: #120f21;
+    -fx-text-fill: #e5e5e5;
+    -fx-font-weight: bold;
+}
+
+.year_2077_theme_list_view_method_cell {
+    -fx-text-fill: #8be9fd;
+}
+
+.year_2077_theme_list_view_cell:hover,
+.year_2077_theme_list_view_cell:selected,
+.year_2077_theme_list_view_cell:focused {
+    -fx-background-color: #233b56;
+}
