@@ -603,7 +603,7 @@ abstract public class App {
                 codeAreaStackPane.setAlignment(Pos.CENTER);
                 codeAreaStackPane.getChildren().add(imageViewer);
             }
-            if(isBinaryFile(tab.getFile())){
+            else if(isBinaryFile(tab.getFile())){
                 codeArea.clear();
                 codeArea.replaceText(0,0,"File may contains binary data or non printable chars\nnot editable");
                 codeArea.setEditable(false);
