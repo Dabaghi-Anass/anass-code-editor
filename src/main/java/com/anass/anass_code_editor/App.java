@@ -26,7 +26,6 @@ import org.fxmisc.richtext.CodeArea;
 
 import java.awt.*;
 import java.io.*;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.*;
@@ -540,7 +539,18 @@ abstract public class App {
     }
     public static boolean isBinaryFile(File file) throws IOException {
         if(!file.exists()) return true;
-        return false;
+        try (FileInputStream fis = new FileInputStream(file)) {
+            int bytesRead;
+            while ((bytesRead = fis.read()) != -1) {
+                if (bytesRead < 32 && bytesRead != 9 && bytesRead != 10 && bytesRead != 13) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
     public static void updateSettings(){
         if(openedTabs.size() == 0) return;
@@ -941,7 +951,6 @@ abstract public class App {
     public static void initMenuBar(){
         Menu fileMenu = new Menu("File");
         Menu editMenu = new Menu("Editor");
-        Menu helpMenu = new Menu("Help");
 
         MenuItem newFile = new MenuItem("New File");
         //newFile.setAccelerator(KeyCombination.keyCombination("Ctrl+N"));
@@ -958,11 +967,8 @@ abstract public class App {
         MenuItem terminalItem = new MenuItem("Terminal");
         terminalItem.setAccelerator(KeyCombination.keyCombination("Ctrl+T"));
         autoSaveItem = new CheckMenuItem("Auto Save");
-        MenuItem about = new MenuItem("About");
-        MenuItem help = new MenuItem("Help");
         fileMenu.getItems().addAll(openFile,newFile,newFolder,new SeparatorMenuItem(),saveFile, saveAsFile,autoSaveItem);
         editMenu.getItems().addAll(terminalItem, exit);
-        helpMenu.getItems().addAll(about,help);
         openFile.setOnAction(e -> openFolder());
         newFile.setOnAction(App::newFile);
         newFolder.setOnAction(App::newFolder);
@@ -972,7 +978,7 @@ abstract public class App {
         exit.setOnAction((e) -> exit());
         terminalItem.setOnAction(e -> getTerminal().maximize());
         autoSaveItem.setSelected(autoSave);
-        getMenuBar().getMenus().addAll(fileMenu, editMenu, helpMenu);
+        getMenuBar().getMenus().addAll(fileMenu, editMenu);
     };
 
     public static Terminal getTerminal() {

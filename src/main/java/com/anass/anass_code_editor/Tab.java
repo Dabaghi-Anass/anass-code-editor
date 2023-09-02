@@ -9,14 +9,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Priority;
 import javafx.scene.text.TextAlignment;
 import org.mozilla.universalchardet.UniversalDetector;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
-import org.xml.sax.SAXException;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Tab extends HBox {

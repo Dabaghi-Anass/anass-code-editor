@@ -7,16 +7,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
 import javafx.util.Callback;
 import org.fxmisc.richtext.Caret;
 import org.fxmisc.richtext.CodeArea;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.InputStream;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -44,75 +39,22 @@ public class CodeCompleter {
         if(!App.isIntellisense())
             return;
         int firstVisibleLine = codeArea.firstVisibleParToAllParIndex();
-        double lineHeight = (double) App.getSettings().fontSize;
-            double caretX = (codeArea.getCaretColumn() + 6) * App.getSettings().fontSize * 9/16;
+        double lineHeight = App.getSettings().fontSize;
+            double caretX = (double) ((codeArea.getCaretColumn() + 6) * App.getSettings().fontSize * 9) /16;
         double caretY = (codeArea.getCurrentParagraph() - firstVisibleLine) * (lineHeight);
         if (suggestionListView != null) {
             App.getCodeAreaStackPane().getChildren().remove(suggestionListView);
         }
         suggestionListView = new ListView<>();
-        suggestionListView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+        suggestionListView.setCellFactory(new Callback<>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
-                return new ListCell<String>() {
+                return new ListCell<>() {
                     private final ImageView imageView = new ImageView();
-                    File varF;
-                    {
-                        try {
-                            varF = new File(getClass().getResource("assets/var.png").toURI());
-                        } catch (URISyntaxException e) {
-                            System.out.println(e.getMessage());
-                            throw new RuntimeException(e);
+                    InputStream varF = getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/var.png");
+                    InputStream methF=getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/method.png");
+                    InputStream keyF = getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/key.png");
 
-                        }
-                    }
-
-                    File methF;
-                    {
-                        try {
-                            methF = new File(getClass().getResource("assets/method.png").toURI());
-                        } catch (URISyntaxException e) {
-                            System.out.println(e.getMessage());
-                            throw new RuntimeException(e);
-                        }
-                    }
-
-                    File keyF;
-
-                    {
-                        try {
-                            keyF = new File(getClass().getResource("assets/key.png").toURI());
-                        } catch (URISyntaxException e) {
-                            System.out.println(e.getMessage());
-                            throw new RuntimeException(e);
-                        }
-                    }
-
-                    String varUrl;
-                    {
-                        try {
-                            varUrl = varF.toURI().toURL().toExternalForm();
-                        } catch (MalformedURLException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                    String methUrl;
-                    String keyUrl;
-
-                    {
-                        try {
-                            methUrl = methF.toURI().toURL().toExternalForm();
-                        } catch (MalformedURLException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
-                    {
-                        try {
-                            keyUrl = keyF.toURI().toURL().toExternalForm();
-                        } catch (MalformedURLException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
 
                     @Override
                     protected void updateItem(String item, boolean empty) {
@@ -126,14 +68,14 @@ public class CodeCompleter {
                         } else {
                             Image icon;
                             if (item.startsWith("k-")) {
-                                icon = new Image(keyUrl);
+                                icon = new Image(keyF);
                                 setText(item.replace("k-", ""));
                             }
                             else if (item.startsWith("v-")) {
-                                icon = new Image(varUrl);
+                                icon = new Image(varF);
                                 setText(item.replace("v-", ""));
                             } else {
-                                icon = new Image(methUrl);
+                                icon = new Image(methF);
                                 setText(item.replace("m-", ""));
                                 getStyleClass().add(th+"list_view_method_cell");
                             }
@@ -166,7 +108,7 @@ public class CodeCompleter {
                         sugg.add(varName);
                     }
                 }
-                if(var.toLowerCase().equals(text.toLowerCase())){
+                if(var.equalsIgnoreCase(text)){
                     sugg.remove(varName);
                 }
             }
@@ -178,7 +120,7 @@ public class CodeCompleter {
                         sugg.add(varName);
                     }
                 }
-                if(var.toLowerCase().equals(text.toLowerCase())){
+                if(var.equalsIgnoreCase(text)){
                     sugg.remove(varName);
                 }
             }
@@ -192,7 +134,7 @@ public class CodeCompleter {
                             sugg.add(varName);
                         }
                     }
-                    if(var.toLowerCase().equals(text.toLowerCase())){
+                    if(var.equalsIgnoreCase(text)){
                         sugg.remove(varName);
                     }
                 }
@@ -207,35 +149,32 @@ public class CodeCompleter {
                 App.getCodeAreaStackPane().getChildren().remove(suggestionListView);
             }
         });
-        codeArea.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent e) {
-                if (e.getCode().equals(KeyCode.ENTER)) {
-                    if(App.getCodeAreaStackPane().getChildren().size()>1){
-                        e.consume();
-                        if(words.length >= 0){
-                            suggestionListView.requestFocus();
-                            if(suggestionListView.getItems().size()>0){
-                            String selected = suggestionListView.getItems().get(0);
-                                if(selected == null) return;
-                                selected = selected.replace("k-","").replace("v-","").replace("m-","");
-                                codeArea.insertText(codeArea.getCaretPosition(),selected);
-                                App.getHighlighter().highlight();
-                            }
-                        }
-                        codeArea.requestFocus();
-                        codeArea.setShowCaret(Caret.CaretVisibility.ON);
-                        App.getCodeAreaStackPane().getChildren().remove(suggestionListView);
-                    }
-                }
-                else if(e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.UP){
-                    if(App.getCodeAreaStackPane().getChildren().size()>1){
-                        e.consume();
+        codeArea.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
+            if (e.getCode().equals(KeyCode.ENTER)) {
+                if(App.getCodeAreaStackPane().getChildren().size()>1){
+                    e.consume();
+                    if(words.length >= 0){
                         suggestionListView.requestFocus();
+                        if(suggestionListView.getItems().size()>0){
+                        String selected = suggestionListView.getItems().get(0);
+                            if(selected == null) return;
+                            selected = selected.replace("k-","").replace("v-","").replace("m-","");
+                            codeArea.insertText(codeArea.getCaretPosition(),selected);
+                            App.getHighlighter().highlight();
+                        }
                     }
-                }else{
                     codeArea.requestFocus();
+                    codeArea.setShowCaret(Caret.CaretVisibility.ON);
+                    App.getCodeAreaStackPane().getChildren().remove(suggestionListView);
                 }
+            }
+            else if(e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.UP){
+                if(App.getCodeAreaStackPane().getChildren().size()>1){
+                    e.consume();
+                    suggestionListView.requestFocus();
+                }
+            }else{
+                codeArea.requestFocus();
             }
         });
         suggestionListView.setOnMouseClicked(e ->{

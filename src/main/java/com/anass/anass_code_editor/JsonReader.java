@@ -15,7 +15,7 @@ public class JsonReader<T> {
         if (inputStream == null) {
             System.out.println("null ressources "+filePath);
             return;
-        };
+        }
         ObjectMapper objectMapper = new ObjectMapper();
         TypeFactory typeFactory = objectMapper.getTypeFactory();
         CollectionType collectionType = typeFactory.constructCollectionType(List.class, valueType);
