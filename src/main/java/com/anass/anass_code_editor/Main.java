@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 import com.jfoenix.controls.JFXDecorator;
@@ -109,11 +110,20 @@ public class Main extends Application {
             File f = new File(args[0]);
             if(f != null && f.exists()){
                 if(f.isDirectory()){
-                    App.setCurrentDir(f);
+                    try {
+                        App.setCurrentDir(f.getCanonicalFile());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     App.setSelectedFolder(f);
                 }else if(f.isFile()){
-                    App.setCurrentDir(f.getParentFile());
-                    App.setSelectedFolder(f.getParentFile());
+                    try {
+                        App.setCurrentDir(f.getParentFile().getCanonicalFile());
+                        App.setSelectedFolder(f.getParentFile().getCanonicalFile());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+
                 }
             }
         }
