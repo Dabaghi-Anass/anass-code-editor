@@ -43,6 +43,8 @@ public class Terminal  {
     }
     public void addCommandRunListener(){
         input.setOnKeyPressed(e -> {
+            if (scrollContainer != null)
+                scrollContainer.vvalueProperty().setValue(1);
             if(e.getCode() == KeyCode.TAB){
                 e.consume();
                 if (input.getText().trim().isEmpty()) return;
@@ -53,9 +55,11 @@ public class Terminal  {
                 for (File file : files) {
                     if (file.getName().toLowerCase().startsWith(fileName)) {
                         input.setText(input.getText().replace(fileName, file.getName()));
+                        break;
                     }
                 }
                 input.requestFocus();
+                input.positionCaret(input.getLength());
                 input.deselect();
             }
             if(e.getCode() == KeyCode.ENTER){
@@ -69,6 +73,7 @@ public class Terminal  {
                 if(commandInd > 0){
                     commandInd--;
                     input.setText(commandes.get(commandInd));
+                    input.positionCaret(input.getLength());
 
                 }
 
@@ -78,6 +83,7 @@ public class Terminal  {
                 if(commandInd < commandes.size() - 1){
                     commandInd++;
                     input.setText(commandes.get(commandInd));
+                    input.positionCaret(input.getLength());
                 }
             }
 
@@ -102,6 +108,8 @@ public class Terminal  {
         App.getSettings().terminalSize = App.getOldVDivPosition();
         App.getvSplitPane().getDividers().get(0).setPosition(App.getOldVDivPosition());
         App.getSettings().terminalMinimised = false;
+        if (scrollContainer != null)
+            scrollContainer.vvalueProperty().setValue(1);
     }
     public Label getPathLabel(){
         HBox parent = App.getTerminalPrompt();
@@ -132,16 +140,17 @@ public class Terminal  {
         promptsContainer.getChildren().add(p);
         input =(TextField) p.lookup("#commandField");
         addCommandRunListener();
+        if (scrollContainer != null)
+            scrollContainer.vvalueProperty().setValue(1);
     }
     private void newOutput() {
         if(promptsContainer == null) return;
         Label out = new Label();
         out.getStyleClass().add("out-label");
         VBox.setVgrow(out,Priority.NEVER);
-        int rowCount = out.getText().split("\n").length;
-        out.setMinHeight(rowCount * out.getFont().getSize());
         promptsContainer.getChildren().add(out);
         output = out;
+        scrollContainer.setVvalue(1.0);
     }
     private void startTerminalProcess() {
         try {
@@ -159,11 +168,24 @@ public class Terminal  {
                     Platform.runLater(() -> {
                         newOutput();
                         newPrompt();
+                        if (scrollContainer != null)
+                            scrollContainer.vvalueProperty().setValue(1);
                     });
                     while ((line = reader.readLine()) != null) {
                         String finalLine = line;
-                        Platform.runLater(() -> output.setText(output.getText() + finalLine + "\n"));
+                        Platform.runLater(() -> {
+                            output.setText(output.getText() + finalLine + "\n");
+                            if (scrollContainer != null)
+                                scrollContainer.vvalueProperty().setValue(1);
+                        });
                     }
+                    Platform.runLater(()->{
+                        int rowCount = output.getText().split("\n").length;
+                        output.setMinHeight(rowCount * 16);
+                        output.setPrefHeight(rowCount * 16);
+                        if (scrollContainer != null)
+                            scrollContainer.vvalueProperty().setValue(1);
+                    });
                 } catch (IOException e) {
                     e.printStackTrace();
                     state.setText("error");
@@ -188,6 +210,8 @@ public class Terminal  {
             }else if(command.startsWith("clear")|| command.startsWith("cls")){
                 clearTerminal();
                 newPrompt();
+                if (scrollContainer != null)
+                    scrollContainer.vvalueProperty().setValue(1);
                 input.requestFocus();
                 return;
             }
@@ -219,9 +243,9 @@ public class Terminal  {
                     scrollContainer.vvalueProperty().setValue(1);
                 input.requestFocus();
             }
-            if(command.startsWith("mkdir ") || command.startsWith("echo ") || command.startsWith("git ") || command.startsWith("touch ") || command.startsWith("npm ")||command.startsWith("yarn ")){
-                App.renderFilesTree();
-            }
+            App.renderFilesTree();
+            if (scrollContainer != null)
+                scrollContainer.vvalueProperty().setValue(1);
         } catch (IOException e) {
             state.setText("error : " + e.getMessage());
             state.getStyleClass().add("error");

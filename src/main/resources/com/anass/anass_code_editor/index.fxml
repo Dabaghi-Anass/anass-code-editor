@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="containerPane" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #1C1C1C;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.anass.anass_code_editor.MainController">
+<AnchorPane fx:id="containerPane" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #1C1C1C;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.anass.anass_code_editor.MainController">
    <children>
       <VBox prefHeight="413.0" prefWidth="769.0" spacing="1.0" style="-fx-background-color: #1C1C1C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -97,7 +106,7 @@
                         </HBox>
                         <ScrollPane fx:id="promptsContainer" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1C1C1C;" VBox.vgrow="ALWAYS">
                            <content>
-                              <VBox minHeight="-Infinity" prefHeight="0.0" prefWidth="100.0" style="-fx-background-color: #1C1C1C;" />
+                              <VBox fx:id="vboxPrompts" minHeight="-Infinity" prefWidth="100.0" style="-fx-background-color: #1C1C1C;" />
                            </content>
                         </ScrollPane>
                      </children>

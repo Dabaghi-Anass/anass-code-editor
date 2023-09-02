@@ -279,7 +279,7 @@
 }
 .out-label{
     -fx-text-fill: #5e97ff;
-    -fx-font-size: 14;
+    -fx-font-size: 16;
     -fx-padding: 10;
 }
 .combo-box-base {
