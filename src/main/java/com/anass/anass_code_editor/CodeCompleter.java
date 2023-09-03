@@ -51,14 +51,13 @@ public class CodeCompleter {
             public ListCell<String> call(ListView<String> param) {
                 return new ListCell<>() {
                     private final ImageView imageView = new ImageView();
-                    InputStream varF = getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/var.png");
-                    InputStream methF=getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/method.png");
-                    InputStream keyF = getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/key.png");
-
 
                     @Override
                     protected void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
+                        InputStream varF = getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/var.png");
+                        InputStream methF=getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/method.png");
+                        InputStream keyF = getClass().getResourceAsStream("/com/anass/anass_code_editor/assets/key.png");
                         String th = App.getSettings().theme.replace(" ","_").toLowerCase()+"_";
                         if (item == null || empty) {
                             setText(null);

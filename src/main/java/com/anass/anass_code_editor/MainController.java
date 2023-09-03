@@ -1,21 +1,17 @@
 package com.anass.anass_code_editor;
 
 import javafx.geometry.Insets;
-import javafx.scene.Cursor;
-import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Circle;
 import javafx.stage.Screen;
 
 import java.io.File;

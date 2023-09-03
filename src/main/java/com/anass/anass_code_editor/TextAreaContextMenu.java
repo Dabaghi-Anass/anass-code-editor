@@ -1,19 +1,11 @@
 package com.anass.anass_code_editor;
 
-import javafx.beans.binding.Bindings;
-import javafx.geometry.Insets;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import org.fxmisc.richtext.CodeArea;
-import org.fxmisc.richtext.model.StyledSegment;
-
-import java.util.Collection;
-import java.util.List;
-
 public class TextAreaContextMenu extends ContextMenu {
         private MenuItem fold, unfold, copy,cut,past;
 
