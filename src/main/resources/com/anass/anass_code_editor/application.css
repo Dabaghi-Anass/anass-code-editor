@@ -275,13 +275,14 @@
     -fx-background-color: #131313;
 }
 .error{
-    -fx-text-fill: #ff1c24;
+    -fx-text-fill: #ff1c24 !important;
 }
 .out-label{
-    -fx-text-fill: #5e97ff;
+    -fx-text-fill: #00ff33;
     -fx-font-size: 16;
     -fx-padding: 10;
 }
+
 .combo-box-base {
     -fx-background-color: transparent;
     -fx-background-insets: 0;

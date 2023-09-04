@@ -142,6 +142,10 @@ abstract public class App {
     private static boolean intellisense;
     public static void exit(){
         saveSettings();
+        Thread terminalProcess = App.getTerminal().getTerminalProcess();
+        if(terminalProcess != null && terminalProcess.isAlive()){
+            terminalProcess.interrupt();
+        }
         if(editedTabs.size() > 0){
             Alert requestExitAlert = new Alert(Alert.AlertType.CONFIRMATION);
             requestExitAlert.setTitle("exiting programme");
@@ -1351,7 +1355,6 @@ abstract public class App {
     public static void setAppDataFolder(File appDataFolder) {
         App.appDataFolder = appDataFolder;
     }
-
     public static File getAppConfigFile() {
         return appConfigFile;
     }

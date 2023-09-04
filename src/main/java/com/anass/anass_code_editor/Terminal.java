@@ -12,13 +12,19 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Terminal  {
     File currentDir;
     private VBox container;
     private Label state;
-    private Process terminalProcess;
+    private Process commandProcess;
+    private Thread terminalProcess;
     private VBox promptsContainer;
+    ExecutorService executorService;
     private TextField input = new TextField();
     private Label output = new Label();
     private ProcessBuilder processBuilder;
@@ -33,9 +39,10 @@ public class Terminal  {
         scrollContainer = sc;
         promptsContainer =(VBox) ((ScrollPane)container.lookup("#promptsContainer")).getContent();
         if(App.getvSplitPane().getItems().size() > 2)
-          terminalWindow = (VBox) App.getvSplitPane().getItems().get(1);
+            terminalWindow = (VBox) App.getvSplitPane().getItems().get(1);
         setState((Label)this.container.lookup("#terminalLabel"));
         currentDir = App.getCurrentDir();
+        executorService = Executors.newFixedThreadPool(1);
         startTerminalProcess();
     }
     public void addCommandRunListener(){
@@ -114,13 +121,13 @@ public class Terminal  {
     }
 
     public HBox getNewPrompt(){
-            HBox parent = App.getTerminalPrompt();
-            if(parent == null) return null;
-            Label path = (Label) parent.lookup("#pathLabel");
-            TextField cmd =(TextField) parent.lookup("#commandField");
-            cmd.setText("");
-            path.setText(currentDir.getAbsolutePath() + ">");
-            return parent;
+        HBox parent = App.getTerminalPrompt();
+        if(parent == null) return null;
+        Label path = (Label) parent.lookup("#pathLabel");
+        TextField cmd =(TextField) parent.lookup("#commandField");
+        cmd.setText("");
+        path.setText(currentDir.getAbsolutePath() + ">");
+        return parent;
     }
 
     public Label getState() {
@@ -149,6 +156,24 @@ public class Terminal  {
         output = out;
         scrollContainer.setVvalue(1.0);
     }
+    public void handleOutput(String line){
+        Platform.runLater(() -> {
+            output.getStyleClass().remove("error");
+            output.setText(output.getText() + line + "\n");
+            if (scrollContainer != null) {
+                scrollContainer.vvalueProperty().setValue(1);
+            }
+        });
+    }
+    public void handleError(String line){
+        Platform.runLater(() -> {
+            output.setText(output.getText() + line + "\n");
+            output.getStyleClass().add("error");
+            if (scrollContainer != null) {
+                scrollContainer.vvalueProperty().setValue(1);
+            }
+        });
+    }
     private void startTerminalProcess() {
         try {
             processBuilder = new ProcessBuilder("/bin/bash");
@@ -158,9 +183,9 @@ public class Terminal  {
             }
             processBuilder.directory(App.getCurrentDir());
             processBuilder.redirectErrorStream(true);
-            terminalProcess = processBuilder.start();
-            new Thread(() -> {
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(terminalProcess.getInputStream()))) {
+            commandProcess = processBuilder.start();
+            terminalProcess = new Thread(() -> {
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(commandProcess.getInputStream()))) {
                     String line;
                     Platform.runLater(() -> {
                         newOutput();
@@ -187,11 +212,15 @@ public class Terminal  {
                     e.printStackTrace();
                     state.setText("error");
                 }
-            }).start();
+            });
+            terminalProcess.start();
         } catch (IOException e) {
             e.printStackTrace();
             state.setText("error");
         }
+    }
+    public Thread getTerminalProcess(){
+        return terminalProcess;
     }
     public void clearTerminal(){
         promptsContainer.getChildren().clear();
@@ -212,9 +241,9 @@ public class Terminal  {
                 input.requestFocus();
                 return;
             }
-            if(!terminalProcess.isAlive()) return;
-            terminalProcess.getOutputStream().write((command + "\n").getBytes());
-            terminalProcess.getOutputStream().flush();
+            if(!commandProcess.isAlive()) return;
+            commandProcess.getOutputStream().write((command + "\n").getBytes());
+            commandProcess.getOutputStream().flush();
             commandes.add(command);
             commandInd = commandes.size() - 1;
             if (command.startsWith("cd ")) {

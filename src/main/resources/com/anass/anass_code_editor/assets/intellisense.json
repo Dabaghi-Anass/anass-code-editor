@@ -2,106 +2,106 @@
   {
     "language": "C",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|switch)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|switch|try)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "Objective-C",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|switch)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|switch|try)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "R",
     "variablePattern": "(\\w+)\\s*<-",
-    "functionPattern": "\\b(?!\\s*(if|while|for|function)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|for|function|try)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "MATLAB",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|for|function)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|for|function|try)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "SQL",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|for)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|for|try)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "Python",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|switch)\\s*\\()\\s*(?!\\s*return\\s*|\\s*throw\\s*|\\s*new\\s*)(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*(throws\\s+\\w+\\s*)?\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|switch|try)\\s*\\()\\s*(?!\\s*return\\s*|\\s*throw\\s*|\\s*new\\s*)(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*(throws\\s+\\w+\\s*)?\\{"
   },
   {
     "language": "JavaScript",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|function)\\s*\\()\\s*(?!\\s*return\\s*|\\s*throw\\s*|\\s*new\\s*)(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|function|try)\\s*\\()\\s*(?!\\s*return\\s*|\\s*throw\\s*|\\s*new\\s*)(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "TypeScript",
     "variablePattern": "((\\w+)\\s*:\\s*.*=\\s*|(\\w+)\\s*=\\s*)",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|function)\\s*\\()\\s*(?!\\s*return\\s*|\\s*throw\\s*|\\s*new\\s*)(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|function|try)\\s*\\()\\s*(?!\\s*return\\s*|\\s*throw\\s*|\\s*new\\s*)(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "Java",
     "variablePattern": "((\\w+)\\s+(\\w+)\\s*=\\s*| (\\w+)\\s*=\\s*)",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|switch)\\s*\\()\\s*(?!\\s*return\\s*|\\s*throw\\s*|\\s*new\\s*)(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*(throws\\s+\\w+\\s*)?\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|switch|try)\\s*\\()\\s*(?!\\s*return\\s*|\\s*throw\\s*|\\s*new\\s*)(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*(throws\\s+\\w+\\s*)?"
   },
   {
     "language": "C++",
     "variablePattern": "(\\w+)\\s*=\\s*(\\w+)\\s*",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "C#",
     "variablePattern": "(\\w+)\\s+(\\w+)\\s*;",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*(\\w+)\\s*\\(.*\\)\\s*\\{"
   },
   {
     "language": "Ruby",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\("
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\("
   },
   {
     "language": "Swift",
     "variablePattern": "(\\w+)\\s*:",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\("
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\("
   },
   {
     "language": "PHP",
     "variablePattern": "\\$(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\("
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\("
   },
   {
     "language": "Rust",
     "variablePattern": "\\s*(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\("
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\("
   },
   {
     "language": "Go",
     "variablePattern": "(\\w+)\\s+:\\s+=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\("
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\("
   },
   {
     "language": "Kotlin",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\("
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\("
   },
   {
     "language": "Perl",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\{"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\{"
   },
   {
     "language": "Haskell",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\())\\s*(\\w+)\\s*::\\s*"
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\())\\s*(\\w+)\\s*::\\s*"
   },
   {
     "language": "Lua",
     "variablePattern": "(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\("
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\("
   },
   {
     "language": "Scala",
     "variablePattern": "(\\w+)\\s+(\\w+)\\s*=",
-    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch)\\s*\\()\\s*(\\w+)\\s*\\("
+    "functionPattern": "\\b(?!\\s*(if|while|do|for|else if|catch|try)\\s*\\()\\s*(\\w+)\\s*\\("
   }
 ]

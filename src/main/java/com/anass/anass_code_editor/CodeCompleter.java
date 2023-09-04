@@ -158,7 +158,13 @@ public class CodeCompleter {
                         String selected = suggestionListView.getItems().get(0);
                             if(selected == null) return;
                             selected = selected.replace("k-","").replace("v-","").replace("m-","");
-                            codeArea.insertText(codeArea.getCaretPosition(),selected);
+                            int caretPosition = codeArea.getCaretPosition();
+                            int wordStart = caretPosition;
+                            while (wordStart > 0 && Character.isLetterOrDigit(codeArea.getText().charAt(wordStart - 1))) {
+                                wordStart--;
+                            }
+                            codeArea.replaceText(wordStart, caretPosition, selected);
+                            codeArea.moveTo(caretPosition - (caretPosition - wordStart) + selected.length());
                             App.getHighlighter().highlight();
                         }
                     }
@@ -178,8 +184,14 @@ public class CodeCompleter {
         });
         suggestionListView.setOnMouseClicked(e ->{
             String selected = suggestionListView.getSelectionModel().getSelectedItem();
-            selected = selected.replace(text,"").replace("k-","").replace("v-","").replace("m-","");
-            codeArea.insertText(codeArea.getCaretPosition(),selected);
+            selected = selected.replace("k-","").replace("v-","").replace("m-","");
+            int caretPosition = codeArea.getCaretPosition();
+            int wordStart = caretPosition;
+            while (wordStart > 0 && Character.isLetterOrDigit(codeArea.getText().charAt(wordStart - 1))) {
+                wordStart--;
+            }
+            codeArea.replaceText(wordStart, caretPosition, selected);
+            codeArea.moveTo(caretPosition - (caretPosition - wordStart) + selected.length());
             App.getHighlighter().highlight();
             codeArea.requestFocus();
             codeArea.setShowCaret(Caret.CaretVisibility.ON);
@@ -190,8 +202,14 @@ public class CodeCompleter {
             if(e.getCode() == KeyCode.ENTER){
                 e.consume();
                 String selected = suggestionListView.getSelectionModel().getSelectedItem();
-                selected = selected.replace(text,"").replace("k-","").replace("v-","").replace("m-","");
-                codeArea.insertText(codeArea.getCaretPosition(),selected);
+                selected = selected.replace("k-","").replace("v-","").replace("m-","");
+                int caretPosition = codeArea.getCaretPosition();
+                int wordStart = caretPosition;
+                while (wordStart > 0 && Character.isLetterOrDigit(codeArea.getText().charAt(wordStart - 1))) {
+                    wordStart--;
+                }
+                codeArea.replaceText(wordStart, caretPosition, selected);
+                codeArea.moveTo(caretPosition - (caretPosition - wordStart) + selected.length());
                 App.getHighlighter().highlight();
                 codeArea.requestFocus();
                 codeArea.setShowCaret(Caret.CaretVisibility.ON);
