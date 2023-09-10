@@ -756,18 +756,22 @@ abstract public class App {
         delete.setOnAction(App::deleteFile);
         openFile.setOnAction(App::initNewTab);
         root.setOnKeyPressed(event -> {
-            if(saveFileCombination.match(event)) saveFile(new ActionEvent());
-            if(saveAllFillesCombination.match(event)) saveAllFiles(new ActionEvent());
-            if(newFileCombination.match(event)) newFile(new ActionEvent());
-            if(newFolderCombination.match(event)) newFolder(new ActionEvent());
-            if(deleteCombination.match(event)) deleteFile(new ActionEvent());
-            if(copyCombination.match(event)) copyFile(new ActionEvent());
-            if(cutCombination.match(event)) cutFile(new ActionEvent());
-            if(pastCombination.match(event)) pastFile(new ActionEvent());
-            if(renameCombination.match(event)) renameFile(new ActionEvent());
-            if(openFolderCombination.match(event)) openFolder();
-            if(nextTabCombination.match(event)) nextTab();
-            if(prevTabCombination.match(event)) prevTab();
+            try{
+                if(saveFileCombination.match(event)) saveFile(new ActionEvent());
+                if(saveAllFillesCombination.match(event)) saveAllFiles(new ActionEvent());
+                if(newFileCombination.match(event)) newFile(new ActionEvent());
+                if(newFolderCombination.match(event)) newFolder(new ActionEvent());
+                if(deleteCombination.match(event)) deleteFile(new ActionEvent());
+                if(copyCombination.match(event)) copyFile(new ActionEvent());
+                if(cutCombination.match(event)) cutFile(new ActionEvent());
+                if(pastCombination.match(event)) pastFile(new ActionEvent());
+                if(renameCombination.match(event)) renameFile(new ActionEvent());
+                if(openFolderCombination.match(event)) openFolder();
+                if(nextTabCombination.match(event)) nextTab();
+                if(prevTabCombination.match(event)) prevTab();
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
         });
         contextMenu.getItems().addAll(openFile,open,addFile,addFolder,saveFile,saveAllFiles,contextAutoSave,separator_2,copy,cut,past,separator_1,rename,delete);
         contextMenu.getStyleClass().add("app-context-menu");
@@ -1036,6 +1040,7 @@ abstract public class App {
         List<Theme> themes = reader.getData();
         if(themes == null && themes.size() == 0) return;
         setThemes(themes);
+        if(settings == null) return;
         setTheme(settings.theme);
         if(codeArea != null) colorizeCodeArea();
         syntaxHighlight();
@@ -1074,14 +1079,19 @@ abstract public class App {
     public static void colorizeCodeArea(){
         String th = settings.theme.replace(" ","_").toLowerCase()+"_";
         codeAreaHolder.getStyleClass().add(th+"background");
-        codeArea.setParagraphGraphicFactory(lineNumber -> {
+        codeArea.textProperty().addListener((observable, oldValue, newValue) -> {
             int linesCount = codeArea.getText().split("\n").length;
-            Label label = new Label(String.valueOf(lineNumber + 1));
-            label.getStyleClass().add("line-number");
-            label.getStyleClass().add(App.getSettings().theme.replace(" ","_").toLowerCase()+"_line");
-            label.setStyle("-fx-pref-width: "+(getNumberCount(linesCount) * settings.fontSize)+"px;"+"-fx-max-width: "+(getNumberCount(linesCount) * settings.fontSize)+"px;");
-            return label;
+            codeArea.setParagraphGraphicFactory(lineNumber -> {
+                Label label = new Label(String.valueOf(lineNumber + 1));
+                label.getStyleClass().add("line-number");
+                label.getStyleClass().add(App.getSettings().theme.replace(" ", "_").toLowerCase() + "_line");
+                label.setStyle("-fx-pref-width: " + (getNumberCount(linesCount) * settings.fontSize) + "px;"
+                        + "-fx-max-width: " + (getNumberCount(linesCount) * settings.fontSize) + "px;"
+                        + "-fx-min-width: " + (getNumberCount(linesCount) * settings.fontSize) + "px;");
+                return label;
+            });
         });
+
         String text = codeArea.getText();
         codeArea.clear();
         codeArea.replaceText(0,0,text);
@@ -1151,15 +1161,45 @@ abstract public class App {
     public static void saveSettings(){
         File configFile = getAppConfigFile();
         if(configFile == null || !configFile.isFile()) return;
-        if(configFile.exists()){
-            try {
-                FileWriter writer = new FileWriter(configFile);
-                writer.write(getSettings().toString());
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();;
+        if(settings == null){
+            if(configFile.exists()){
+                try {
+                    FileWriter writer = new FileWriter(configFile);
+                    writer.write("""
+                                {
+                                  "openedFolder": "",
+                                  "openedTabs": [],
+                                  "terminalSize": 1,
+                                  "codeAreaSize": 0.192,
+                                  "autoSave": false,
+                                  "intellisense": false,
+                                  "wrapText": false,
+                                  "minimized": false,
+                                  "selectedTab": "",
+                                  "windowWidth": 1025,
+                                  "windowHeight": 555,
+                                  "fontSize": 20,
+                                  "fontFamily": "Lucida Console",
+                                  "terminalMinimised": true,
+                                  "theme": "Default"
+                                }""");
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();;
+                }
+            }
+        }else{
+            if(configFile.exists()){
+                try {
+                    FileWriter writer = new FileWriter(configFile);
+                    writer.write(getSettings().toString());
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();;
+                }
             }
         }
+
     }
     public static TextField getSearchInput() {
         return searchInput;

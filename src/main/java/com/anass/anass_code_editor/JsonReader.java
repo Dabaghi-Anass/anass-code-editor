@@ -67,7 +67,7 @@ public class JsonReader<T> {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        }
+    }
 
     public List<T> getData() {
         return data;

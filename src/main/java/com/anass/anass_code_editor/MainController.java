@@ -91,11 +91,12 @@ public class MainController implements Initializable  {
                             writer.close();
                         }
                     } catch (IOException e) {
-                        throw new RuntimeException(e);
+                        System.out.println(e.getMessage());
                     }
                 }else{
                     App.setAppConfigFile(configFile);
                 }
+
             }
         }
         else{
@@ -127,7 +128,7 @@ public class MainController implements Initializable  {
                         writer.close();
                     }
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(e.getMessage());
                 }
             }
             else {
@@ -260,13 +261,18 @@ public class MainController implements Initializable  {
     }
     public void hookIdeDefaults(){
         codeArea.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                autoIndent(codeArea);
-            } else if (event.isControlDown() && event.isAltDown() && event.getCode() == KeyCode.DOWN) {
-                duplicateLine(codeArea);
-            }
-            if(App.getHighlighter() != null){
-                App.getHighlighter().highlight();
+            try{
+                if (event.getCode() == KeyCode.ENTER) {
+                    autoIndent(codeArea);
+                } else if (event.isShiftDown() && event.isAltDown()) {
+                    if(event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.UP)
+                        duplicateLine(codeArea);
+                }
+                if(App.getHighlighter() != null){
+                    App.getHighlighter().highlight();
+                }
+            }catch (Exception e){
+                System.out.println(e);
             }
         });
     }
