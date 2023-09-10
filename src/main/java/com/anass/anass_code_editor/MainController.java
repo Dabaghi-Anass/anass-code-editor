@@ -264,7 +264,7 @@ public class MainController implements Initializable  {
             try{
                 if (event.getCode() == KeyCode.ENTER) {
                     autoIndent(codeArea);
-                } else if (event.isShiftDown() && event.isAltDown()) {
+                } else if (event.isControlDown() && event.isAltDown()) {
                     if(event.getCode() == KeyCode.DOWN || event.getCode() == KeyCode.UP)
                         duplicateLine(codeArea);
                 }
