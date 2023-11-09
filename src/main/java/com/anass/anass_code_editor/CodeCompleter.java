@@ -94,7 +94,7 @@ public class CodeCompleter {
         int currentParagraph = Math.max(0,codeArea.getCurrentParagraph());
         String currentLineText = codeArea.getParagraph(currentParagraph).getText();
         int cursorPos = Math.min(codeArea.getCaretColumn()+1,currentLineText.length());
-        String[] words = currentLineText.substring(0,cursorPos).split(" ");
+        String[] words = currentLineText.substring(0,cursorPos).split("(?<=\\{|\\}|\\[|\\]|/\\\\|\\(|\\)|\\b|\\W)");
         if(words.length == 0)return;
         String text = words[words.length -1];
         ArrayList<String> sugg = new ArrayList<>();

@@ -51,9 +51,7 @@ public class Main extends Application {
             Parent root = fxmlLoader.load();
             JFXDecorator decorator = new JFXDecorator(stage,root,false,true,true);
             decorator.setFillWidth(true);
-            decorator.setOnCloseButtonAction(()->{
-                App.exit();
-            });
+            decorator.setOnCloseButtonAction(App::exit);
             JFXDecorator.setVgrow(root, Priority.ALWAYS);
             decorator.setFocusTraversable(false);
             Scene scene = new Scene(decorator);

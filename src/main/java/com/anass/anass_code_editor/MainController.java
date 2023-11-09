@@ -1,6 +1,7 @@
 package com.anass.anass_code_editor;
 
 import javafx.geometry.Insets;
+import javafx.scene.Cursor;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.flowless.VirtualizedScrollPane;
@@ -292,7 +293,10 @@ public class MainController implements Initializable  {
     }
     private void autoClose(String c,CodeArea codeArea) {
         if(isClosable(c)){
-            codeArea.insertText(codeArea.getCaretPosition(),getClosingCharacter(c));
+            int caretPosition = codeArea.getCaretPosition();
+            codeArea.insertText(caretPosition,getClosingCharacter(c));
+            codeArea.moveTo(caretPosition);
+            codeArea.requestFocus();
         }
     }
     public boolean isClosable(String s) {

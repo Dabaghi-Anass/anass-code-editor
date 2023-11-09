@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXDecorator;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -919,6 +920,12 @@ abstract public class App {
                 if(autoSave){
                     saveFile(new ActionEvent());
                 }
+            }
+        });
+        codeArea.addEventFilter(KeyEvent.KEY_PRESSED,(e) -> {
+            if(e.getCode() == KeyCode.TAB && !e.isControlDown()){
+                e.consume();
+                codeArea.insertText(codeArea.getCaretPosition()," ".repeat(4));
             }
         });
     }
